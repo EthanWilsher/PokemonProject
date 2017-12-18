@@ -28,7 +28,7 @@ public abstract class Pokemon
 			pokeTypes[index] = currentInterface;
 		}
 		
-	return pokeTypes;
+	return types;
 		
 	}
 	

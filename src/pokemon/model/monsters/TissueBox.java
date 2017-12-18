@@ -1,4 +1,7 @@
-package pokemon.model;
+package pokemon.model.monsters;
+
+import pokemon.model.Pokemon;
+import pokemon.model.types.Derptastic;
 
 public class TissueBox extends Pokemon implements Derptastic
 {
