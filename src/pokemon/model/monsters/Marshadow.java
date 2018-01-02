@@ -2,9 +2,24 @@ package pokemon.model.monsters;
 
 import pokemon.model.Pokemon;
 import pokemon.model.types.Fighting;
+import pokemon.model.types.Ghost;
 
-public class Marshadow extends Pokemon implements Fighting
+public class Marshadow extends Pokemon implements Fighting, Ghost
 {
+	public Marshadow()
+	{
+		super(802, "Marshadow");
+	}
+	
+	public Marshadow(String name)
+	{
+		super(802, name);
+	}
+	
+	public Marshadow(int number, String name)
+	{
+		super(name, number);
+	}
 	
 	public int punches(int hits)
 	{
