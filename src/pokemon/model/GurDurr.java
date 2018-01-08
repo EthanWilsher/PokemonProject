@@ -1,7 +1,4 @@
-package pokemon.model.monsters;
-
-import pokemon.model.Pokemon;
-import pokemon.model.types.Fighting;
+package pokemon.model;
 
 public class GurDurr extends Pokemon implements Fighting
 {

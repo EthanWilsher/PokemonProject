@@ -1,4 +1,4 @@
-package pokemon.model.types;
+package pokemon.model;
 
 public interface Ghost
 {

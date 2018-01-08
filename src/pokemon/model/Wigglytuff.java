@@ -1,7 +1,4 @@
-package pokemon.model.monsters;
-
-import pokemon.model.Pokemon;
-import pokemon.model.types.Fairy;
+package pokemon.model;
 
 public class Wigglytuff extends Jigglypuff 
 {

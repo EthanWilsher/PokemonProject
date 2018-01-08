@@ -1,15 +1,10 @@
 package pokemon.view;
 
 import pokemon.controller.PokemonController;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.SpringLayout;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JLabel;
+import javax.swing.*;
+import java.awt.*;
+
+
 
 public class PokemonPanel extends JPanel
 {
@@ -22,38 +17,28 @@ public class PokemonPanel extends JPanel
 	private JLabel modifierLabel;
 	private JLabel iconLabel;
 	
-//	private JCheckBox evolvableBox;
-//	private JTextField nameField;
-//	private JTextField numberField;
-//	private JTextField attackField;
-//	private JTextField healthField;
-//	private JTextField modifierField;
-//	
-//	private JTextArea descriptionArea;
-//	private JTextArea typeArea;
-//	
-//	private JButton saveButton;
-//	private JButton clearButton;
-//	private JComboBox pokedexDropdown;
-//	
-//	private JPanel firstType;
-//	private JPanel secondType;
-//	private JPanel thirdType;
-//	private JPanel fourthType;
-//	
-//	private SpringLayout pokemonLayout;
+	private JCheckBox evolvableBox;
+	private JTextField nameField;
+	private JTextField numberField;
+	private JTextField attackField;
+	private JTextField healthField;
+	private JTextField modifierField;
 	
-	private void updatePokedexInfo(int index)
-	{
-		nameField.setText(appController.getPokedex().get(index).getName());
-		evolvableBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
-		numberField.setText(appController.getPokedex().get(index).getNumber()+ "");
-		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
-		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
-		modifierField.setText(appController.getPokedex().get(index)getEnhancementModifier() + "");
-		
-		
-	}
+	private JTextArea descriptionArea;
+	private JTextArea typeArea;
+	
+	private JButton saveButton;
+	private JButton clearButton;
+	private JComboBox pokedexDropdown;
+	
+	private JPanel firstType;
+	private JPanel secondType;
+	private JPanel thirdType;
+	private JPanel fourthType;
+	
+	private SpringLayout pokemonLayout;
+	
+
 	
 	private PokemonController appController;
 	
@@ -62,14 +47,33 @@ public class PokemonPanel extends JPanel
 		super();
 		this.appController = appController;
 		
+		this.evolvableBox = new JCheckBox();
+		this.nameField = new JTextField("name");
+		this.numberField = new JTextField("##");
+		this.attackField = new JTextField("AP");
+		this.healthField =  new JTextField("HP");
+		this.modifierField = new JTextField("mod");
 		
-		iconLabel = new JLabel("");
-		modifierLabel = new JLabel("");
-		evolvableLabel = new JLabel("");
-		numberLabel = new JLabel("");
-		healthLabel = new JLabel("");
-		attackLabel = new JLabel("");
-		nameLabel = new JLabel("");
+		
+		this.iconLabel = new JLabel("pokemon", new ImageIcon(getClass().getResource("/pokemon/view/images/PokedexImage")), JLabel.CENTER);
+		this.modifierLabel = new JLabel("");
+		this.evolvableLabel = new JLabel("");
+		this.numberLabel = new JLabel("");
+		this.healthLabel = new JLabel("");
+		this.attackLabel = new JLabel("");
+		this.nameLabel = new JLabel("");
+		this.clearButton = new JButton("save");
+		this.saveButton = new JButton("save");
+		this.pokedexDropdown = new JComboBox();
+		
+		this.descriptionArea = new JTextArea(5, 10);
+		this.typeArea = new JTextArea(4, 15);
+		
+		this.firstType = new JPanel();
+		this.secondType = new JPanel();
+		this.thirdType = new JPanel();
+		this.fourthType = new JPanel();
+		
 		
 		setupPanel();
 		setupLayout();
@@ -78,8 +82,8 @@ public class PokemonPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		this.setBackground(Color.ORANGE);
 		this.setLayout(pokemonLayout);
+		this.setBackground(Color.ORANGE);
 		this.add(healthLabel);
 		this.add(attackLabel);
 		this.add(nameLabel);

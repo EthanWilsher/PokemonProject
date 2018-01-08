@@ -1,7 +1,4 @@
-package pokemon.model.monsters;
-
-import pokemon.model.Pokemon;
-import pokemon.model.types.Ghost;
+package pokemon.model;
 
 public class Litwick extends Pokemon implements Ghost
 {
