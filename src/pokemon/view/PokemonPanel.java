@@ -47,37 +47,49 @@ public class PokemonPanel extends JPanel
 		super();
 		this.appController = appController;
 		
-		this.evolvableBox = new JCheckBox();
-		this.nameField = new JTextField("name");
-		this.numberField = new JTextField("##");
-		this.attackField = new JTextField("AP");
-		this.healthField =  new JTextField("HP");
-		this.modifierField = new JTextField("mod");
+		evolvableBox = new JCheckBox();
+		nameField = new JTextField("name");
+		numberField = new JTextField("##");
+		attackField = new JTextField("AP");
+		healthField =  new JTextField("HP");
+		modifierField = new JTextField("mod");
 		
 		
-		this.iconLabel = new JLabel("pokemon", new ImageIcon(getClass().getResource("/pokemon/view/images/PokedexImage")), JLabel.CENTER);
-		this.modifierLabel = new JLabel("");
-		this.evolvableLabel = new JLabel("");
-		this.numberLabel = new JLabel("");
-		this.healthLabel = new JLabel("");
-		this.attackLabel = new JLabel("");
-		this.nameLabel = new JLabel("");
-		this.clearButton = new JButton("save");
-		this.saveButton = new JButton("save");
-		this.pokedexDropdown = new JComboBox();
+		iconLabel = new JLabel("pokemon", new ImageIcon(getClass().getResource("/pokemon/view/images/PokedexImage")), JLabel.CENTER);
+		modifierLabel = new JLabel("");
+		evolvableLabel = new JLabel("");
+		numberLabel = new JLabel("");
+		healthLabel = new JLabel("");
+		attackLabel = new JLabel("");
+		nameLabel = new JLabel("");
+		clearButton = new JButton("save");
+		saveButton = new JButton("save");
+		pokedexDropdown = new JComboBox();
 		
-		this.descriptionArea = new JTextArea(5, 10);
-		this.typeArea = new JTextArea(4, 15);
+		descriptionArea = new JTextArea(5, 10);
+		typeArea = new JTextArea(4, 15);
 		
-		this.firstType = new JPanel();
-		this.secondType = new JPanel();
-		this.thirdType = new JPanel();
-		this.fourthType = new JPanel();
+		firstType = new JPanel();
+		secondType = new JPanel();
+		thirdType = new JPanel();
+		fourthType = new JPanel();
 		
-		
+		setupComboBox();
+		setupTypePanels();
 		setupPanel();
 		setupLayout();
 		setupListeners();
+	}
+	
+	private void setupComboBox()
+	{
+		DefaultComboBoxModel pokemonModel = new DefaultComboBoxModel<String>(appController.convertPokedex());
+		pokedexDropdown.setModel(pokemonModel);
+	}
+	
+	private void setupTypePanels()
+	{
+		
 	}
 	
 	private void setupPanel()
@@ -117,6 +129,39 @@ public class PokemonPanel extends JPanel
 	{
 		
 	}
+	
+	private void updateImage()
+	{
+		
+	}
+	
+	private void updateTypePanels() 
+	{
+		String [] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
+		if (types[0].equals("Fairy"))
+		{
+			firstType.setBackground(Color.PINK);
+		}
+		else if(types[0].equals("Fighting"))
+		{
+			firstType.setBackground(Color.RED);
+		}
+		else if(types[0].equals("Ghost"))
+		{
+			firstType.setBackground(Color.GRAY);
+		}
+		else
+		{
+			firstType.setBackground(Color.WHITE);
+		}
+	
+	
+	}
+	
+	
+	
+	
+	
 	
 
 }
