@@ -1,13 +1,16 @@
 package pokemon.view;
 
-import pokemon.controller.PokemonController;
+import pokemon.controller.*;
 import javax.swing.*;
-import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 
 public class PokemonPanel extends JPanel
 {
+	private SpringLayout pokemonLayout;
+	private PokemonController appController;
 	
 	private JLabel healthLabel;
 	private JLabel attackLabel;
@@ -36,11 +39,7 @@ public class PokemonPanel extends JPanel
 	private JPanel thirdType;
 	private JPanel fourthType;
 	
-	private SpringLayout pokemonLayout;
 	
-
-	
-	private PokemonController appController;
 	
 	public PokemonPanel(PokemonController appController)
 	{
@@ -65,6 +64,8 @@ public class PokemonPanel extends JPanel
 		clearButton = new JButton("save");
 		saveButton = new JButton("save");
 		pokedexDropdown = new JComboBox();
+		
+		pokemonLayout = new SpringLayout();
 		
 		descriptionArea = new JTextArea(5, 10);
 		typeArea = new JTextArea(4, 15);
