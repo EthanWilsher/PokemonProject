@@ -127,7 +127,17 @@ public class PokemonPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		pokedexDropdown.addActionListener(new ActionListener()
+				{
+				public void actionPerformed(ActionEvent selection)
+				{
+					int selectPokemonIndex = pokedexDropdown.getSelectedIndex();
+					updatePokedexInfo(selectedPokemonIndex);
+					updateImage();
+					updateTypePanels();
+					repaint();
+				}	
+				});
 	}
 	
 	private void updateImage()
@@ -155,6 +165,12 @@ public class PokemonPanel extends JPanel
 			firstType.setBackground(Color.WHITE);
 		}
 	
+		if(types.length > 1)
+		{
+			if (types[1].equals) 
+		}
+		
+		
 	
 	}
 	

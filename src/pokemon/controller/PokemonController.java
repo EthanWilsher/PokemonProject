@@ -1,11 +1,12 @@
 package pokemon.controller;
 
 import pokemon.model.*;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
-public class PokemonController
+public class PokemonController 
 {
+	private List<Pokemon> pokedex;
+	private PokemonFrame appFrame;
 	
 	public void Pokemon()
 	{
@@ -15,8 +16,7 @@ public class PokemonController
 		
 		appFrame = new PokemonFrame(this);
 	}
-	private List<Pokemon> pokedex;
-	private PokemonFrame appFrame;
+	
 	
 	private void buildPokedex()
 	{
@@ -45,5 +45,17 @@ public class PokemonController
 	public boolean isValidDouble(String input)
 	{
 		return false;
+	}
+	
+	public String [] convertPokedex()
+	{
+		String [] names = new String [pokedex.size()];
+		
+		for (int index = 0; index < pokedex.size(); index++)
+		{
+			names[index] = pokedex.get(index).getName();
+		}
+		
+		return names;
 	}
 }
