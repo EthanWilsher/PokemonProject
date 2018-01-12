@@ -1,5 +1,7 @@
 package pokemon.model;
 
+import java.util.ArrayList;
+
 public abstract class Pokemon
 {
 	private int healthPoints;
@@ -15,20 +17,38 @@ public abstract class Pokemon
 		this.number = number;
 	}
 	
-	public final String getPokeTypes()
+	public String [] getPokeTypes()
 	{
-		Class<?> [] types = getClass().getInterfaces();
-		String [] pokeTypes = new String[types.length];
+		String [] types = null; 
+		ArrayList<String> parentType = new ArrayList<String>();
+		Class<?> currentClass = this.getClass();
 		
-		for (int index = 0; index < types.length; index++)
+		while(currentClass.getSuperclass() != null)
 		{
-			String currentInterface = types[index].getCanonicalName();
-			currentInterface = currentInterface.replaceAll(this.getClass().getPackage().getName() + ".", "");
+			Class<?> [] pokemonTypes = currentClass.getInterfaces();
+			types = new String[pokemonTypes.length];
 			
-			pokeTypes[index] = currentInterface;
+			for(int index = 0; index < types.length; index++)
+			{
+					String currentInterface = pokemonTypes[index].getCanonicalName();
+					currentInterface = currentInterface.replace(this.getClass().getPackage().getName() + ".", "");
+					if(!parentType.contains(currentInterface))
+					{
+							parentType.add(currentInterface);
+					}
+			}
+			
+			currentClass = currentClass.getSuperclass();
 		}
 		
-	return types;
+		types = new String [parentType.size()];
+		
+		for(int index = 0; index < parentType.size(); index++)
+		{
+				types[index] = parentType.get(index);
+		}
+		
+		return types;
 		
 	}
 	
