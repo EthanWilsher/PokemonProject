@@ -274,7 +274,7 @@ public class PokemonPanel extends JPanel
 	
 		if(types.length > 1)
 		{
-			if (types[1].equals) 
+			if (types[1].equals);
 		}
 		
 		

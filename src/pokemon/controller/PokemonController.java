@@ -4,6 +4,7 @@ import pokemon.model.*;
 import java.util.*;
 import pokemon.view.*;
 
+
 public class PokemonController 
 {
 	private List<Pokemon> pokedex;
@@ -15,7 +16,8 @@ public class PokemonController
 		
 		buildPokedex();
 		
-		appFrame = new PokemonFrame(this);
+		
+		this.appFrame = new PokemonFrame();
 	}
 	
 	
@@ -70,6 +72,10 @@ public class PokemonController
 		selected.setEnhancementModifier(modify);
 		selected.setName(name);
 		selected.setHealthPoints(health);
+		
+		FileController.savePokemonToFile((ArrayList<Pokemon>) pokedex);
+		
+		
 	}
 	
 	
