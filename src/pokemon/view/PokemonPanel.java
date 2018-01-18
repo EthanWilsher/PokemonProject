@@ -40,6 +40,23 @@ public class PokemonPanel extends JPanel
 	private JPanel thirdType;
 	private JPanel fourthType;
 	
+	private void updatePokedexInfo(int index)
+	{
+		nameField.setText(appController.getPokedex().get(index).getName());
+		evolvableBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
+		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
+		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
+		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
+		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
+		
+		descriptionArea.setText(appController.getPokedex().get(index).toString());
+		typeArea.setText("");
+		
+		for (String current : appController.getPokedex().get(index).getPokemonTypes())
+		{
+			typeArea.append(current + "\n");
+		}
+	}
 	
 	
 	public PokemonPanel(PokemonController appController)
@@ -78,12 +95,8 @@ public class PokemonPanel extends JPanel
 		
 		
 		firstType = new JPanel();
-		
-		
 		secondType = new JPanel();
-		
 		thirdType = new JPanel();
-		
 		fourthType = new JPanel();
 		
 		setupComboBox();
@@ -93,23 +106,7 @@ public class PokemonPanel extends JPanel
 		setupListeners();
 	}
 	
-	private void updatePokedexInfo(int index)
-	{
-		nameField.setText(appController.getPokedex().get(index).getName());
-		evolvableBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
-		numberField.setText(appController.getPokedex().get(index).getNumber() + "");
-		attackField.setText(appController.getPokedex().get(index).getAttackPoints() + "");
-		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
-		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
-		
-		descriptionArea.setText(appController.getPokedex().get(index).toString());
-		typeArea.setText("");
-		
-		for (String current : appController.getPokedex().get(index).getPokemonTypes())
-		{
-			typeArea.append(current + "\n");
-		}
-	}
+	
 	
 	private void setupComboBox()
 	{
@@ -274,7 +271,27 @@ public class PokemonPanel extends JPanel
 	
 		if(types.length > 1)
 		{
-			if (types[1].equals);
+			if (types[1].equals("Fairy"))
+			{
+				secondType.setBackground(Color.PINK);
+			}
+			else if(types [1].equals("Fightingz"))
+			{
+				secondType.setBackground(Color.RED);
+			}
+			else if(types [1].equals("Ghost"))
+			{
+				secondType.setBackground(Color.GRAY);
+			}
+			else
+			{
+				secondType.setBackground(Color.WHITE);
+			}
+			if(types.length == 3)
+			{
+				
+			}
+			
 		}
 		
 		

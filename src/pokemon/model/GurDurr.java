@@ -4,21 +4,21 @@ public class GurDurr extends Pokemon implements Fighting
 {
 	public GurDurr()
 	{
-		super(533, "GurDurr");
+		super("GurDurr", 533);
 		
 		setup();
 	}
 	
 	public GurDurr(String name)
 	{
-		super(533, name);
+		super(name, 533);
 		
 		setup();
 	}
 	
 	public GurDurr(int number, String name)
 	{
-		super(number, name);
+		super(name, number);
 		
 		setup();
 	}

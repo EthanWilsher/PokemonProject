@@ -4,14 +4,14 @@ public class Litwick extends Pokemon implements Ghost
 {
 	public Litwick()
 	{
-		super(607, "Litwick");
+		super("Litwick", 607);
 	
 		setup();
 	}
 	
 	public Litwick(String name)
 	{
-		super(607, name);
+		super(name, 607);
 		
 		setup();
 	}

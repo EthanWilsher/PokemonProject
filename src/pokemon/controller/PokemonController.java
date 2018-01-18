@@ -33,6 +33,14 @@ public class PokemonController
 	
 	public List<Pokemon> getPokedex()
 	{
+		pokedex.add(new GurDurr());
+		pokedex.add(new Hitmonlee());
+		pokedex.add(new Jigglypuff());
+		pokedex.add(new Litwick());
+		pokedex.add(new Marshadow());
+		pokedex.add(new Wigglytuff());
+		
+		
 		return pokedex;
 	}
 	public void start()
@@ -42,12 +50,34 @@ public class PokemonController
 
 	public boolean isValidInteger(String input)
 	{
-		return false;
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(input);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			
+		}
+		return valid;
 	}
 	
 	public boolean isValidDouble(String input)
 	{
-		return false;
+		boolean valid = false;
+		
+		try
+		{
+			Integer.parseInt(input);
+			valid = true;
+		}
+		catch(NumberFormatException error)
+		{
+			
+		}
+		return valid;
 	}
 	
 	public String [] convertPokedex()

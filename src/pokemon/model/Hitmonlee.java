@@ -5,14 +5,14 @@ public class Hitmonlee extends Pokemon implements Fighting
 	public Hitmonlee()
 	{
 		
-		super(106, "Hitmonlee");
+		super("Hitmonlee", 106);
 		
 		setup();
 	}
 	
 	public Hitmonlee(String name)
 	{
-		super(106, name);
+		super(name, 106);
 		
 		setup();
 	}
