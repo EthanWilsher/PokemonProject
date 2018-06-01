@@ -52,7 +52,7 @@ public class PokemonPanel extends JPanel
 		descriptionArea.setText(appController.getPokedex().get(index).toString());
 		typeArea.setText("");
 		
-		for (String current : appController.getPokedex().get(index).getPokemonTypes())
+		for (String current : appController.getPokedex().get(index).getPokeTypes())
 		{
 			typeArea.append(current + "\n");
 		}
@@ -251,7 +251,7 @@ public class PokemonPanel extends JPanel
 	
 	private void updateTypePanels() 
 	{
-		String [] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
+		String [] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokeTypes();
 		if (types[0].equals("Fairy"))
 		{
 			firstType.setBackground(Color.PINK);
